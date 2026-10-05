@@ -16,6 +16,7 @@
 		B10000000000000000000007 /* MetadataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000007 /* MetadataCache.swift */; };
 		B10000000000000000000008 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000008 /* Models.swift */; };
 		B10000000000000000000009 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000009 /* Shell.swift */; };
+		B10000000000000000000099 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000099 /* Logger.swift */; };
 		B1000000000000000000000A /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000000A /* AppIcon.png */; };
 		B1000000000000000000000B /* bin in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000000B /* bin */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		A10000000000000000000007 /* MetadataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataCache.swift; sourceTree = "<group>"; };
 		A10000000000000000000008 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A10000000000000000000009 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
+		A10000000000000000000099 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A1000000000000000000000A /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		A1000000000000000000000B /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
 		A1000000000000000000000C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				A10000000000000000000004 /* AppStoreService.swift */,
 				A10000000000000000000006 /* DeviceService.swift */,
 				A10000000000000000000009 /* Shell.swift */,
+				A10000000000000000000099 /* Logger.swift */,
 				A10000000000000000000007 /* MetadataCache.swift */,
 				A1000000000000000000000A /* AppIcon.png */,
 				A1000000000000000000000B /* bin */,
@@ -145,7 +148,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Sign bundled binaries with hardened runtime\nfor bin in \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/bin/\"*; do\n  codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --options runtime \"$bin\"\ndone\n";
+			shellScript = "# Sign bundled binaries with hardened runtime\nfor bin in \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/bin/\"*; do\n  codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --options runtime --entitlements \"${SRCROOT}/AppDowngrader.entitlements\" \"$bin\"\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -163,6 +166,7 @@
 				B10000000000000000000007 /* MetadataCache.swift in Sources */,
 				B10000000000000000000008 /* Models.swift in Sources */,
 				B10000000000000000000009 /* Shell.swift in Sources */,
+				B10000000000000000000099 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
